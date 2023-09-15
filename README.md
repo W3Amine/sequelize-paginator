@@ -9,3 +9,9 @@ You can install the package using npm or yarn:
 ```bash
 npm install sequelize-paginator
 
+Setup
+In Your Models
+
+To set up Sequelize Paginator in your Sequelize models, follow these steps:
+
+    Import the package:
