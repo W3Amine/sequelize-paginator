@@ -72,9 +72,6 @@ fs.readdirSync(__dirname)
     db[model.name] = model;
     model.findAndPaginate = findAndPaginate;
   });
-
-
-
 ```
 
 ## In Your Application
