@@ -22,10 +22,9 @@ Import the package:
 const { findAndPaginate } = require("sequelize-paginator");
 ```
 
-1 - define
+#### 1 - define
 
 ```
-
 // Define the model
 const MyModel = sequelize.define('MyModel', {
   // Your model attributes here
