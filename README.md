@@ -35,7 +35,6 @@ const MyModel = sequelize.define('MyModel', {
 
 // Add a findAndPaginate to the model
 MyModel.findAndPaginate = findAndPaginate ;
-
 ```
  
 3 -  init 
@@ -56,7 +55,6 @@ MyModel.findAndPaginate = findAndPaginate ;
     }
   );
    Cours.findAndPaginate = findAndPaginate;
-
 ```
 
 
@@ -103,7 +101,6 @@ const result = await YourModel.findAndPaginate(10, req, {});
 const paginationLinks = tailwindLinks(result.links);
 
 res.render("your_template", { result.data, paginationLinks });
-
 ```
 
 
@@ -127,7 +124,6 @@ const paginationLinks = bootstrapLinks(addQueryString(result.links, req.query, "
 const { Op } = require("sequelize");
   data = await Cours.findAndPaginate(5, req, { where: { id: { [Op.gt]: 100 } } });
   data2 = await User.findAndPaginate(10, req, { where: { id: { [Op.lt]: 100 } } });
-
 ```
 
 
