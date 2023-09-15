@@ -21,16 +21,24 @@ Import the package:
 ```
 const { findAndPaginate } = require("sequelize-paginator");
 ```
-1 - For each Sequelize model you want to paginate, add the findAndPaginate function to it. For example:
+
+1 - define
 
 ```
-const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-model.findAndPaginate = findAndPaginate;
-```
 
-2 - or inside the model file  : define or init function
+// Define the model
+const MyModel = sequelize.define('MyModel', {
+  // Your model attributes here
+  name: DataTypes.STRING,
+  age: DataTypes.INTEGER,
+});
+
+// Add a findAndPaginate to the model
+MyModel.findAndPaginate = findAndPaginate ;
+
+```
  
-  - init 
+3 -  init 
   
 ```
   Cours.init(
@@ -50,23 +58,24 @@ model.findAndPaginate = findAndPaginate;
    Cours.findAndPaginate = findAndPaginate;
 
 ```
--  define
+
+
+3 - For each Sequelize model you want to paginate, add the findAndPaginate function to it. For example:
 
 ```
+fs.readdirSync(__dirname)
+  .filter((file) => {
+    return file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js" && file.indexOf(".test.js") === -1;
+  })
+  .forEach((file) => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    db[model.name] = model;
+    model.findAndPaginate = findAndPaginate;
+  });
 
-// Define the model
-const MyModel = sequelize.define('MyModel', {
-  // Your model attributes here
-  name: DataTypes.STRING,
-  age: DataTypes.INTEGER,
-});
 
-// Add a findAndPaginate to the model
-MyModel.findAndPaginate = findAndPaginate ;
 
 ```
-
-
 
 ## In Your Application
 
@@ -78,10 +87,10 @@ To use Sequelize Paginator in your application, you can follow these examples:
 const { bootstrapLinks, addQueryString } = require("sequelize-paginator");
 
 // Inside your route or controller:
-const data = await YourModel.findAndPaginate(10, req, {});
-const paginationLinks = bootstrapLinks(data.links);
+const result = await YourModel.findAndPaginate(6, req, {});
+const paginationLinks = bootstrapLinks(result.links);
 
-res.render("your_template", { data, paginationLinks });
+res.render("your_template", { result.data, paginationLinks });
 ```
 
 In this example, YourModel should be replaced with your Sequelize model, and "your_template" should be replaced with the name of your template or view.
@@ -93,10 +102,10 @@ In this example, YourModel should be replaced with your Sequelize model, and "yo
 const { tailwindLinks, addQueryString } = require("sequelize-paginator");
 
 // Inside your route or controller:
-const data = await YourModel.findAndPaginate(10, req, {});
-const paginationLinks = tailwindLinks(data.links);
+const result = await YourModel.findAndPaginate(10, req, {});
+const paginationLinks = tailwindLinks(result.links);
 
-res.render("your_template", { data, paginationLinks });
+res.render("your_template", { result.data, paginationLinks });
 
 ```
 
@@ -110,8 +119,8 @@ The addQueryString function is used to append query parameters to pagination lin
 ```
 const { addQueryString } = require("sequelize-paginator");
 
-const data = await YourModel.findAndPaginate(10, req, {});
-const paginationLinks = bootstrapLinks(addQueryString(data.links, req.query, "page"));
+const result = await YourModel.findAndPaginate(10, req, {});
+const paginationLinks = bootstrapLinks(addQueryString(result.links, req.query, "page"));
 ```
 
 ## Usage with where Operators
