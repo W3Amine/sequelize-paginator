@@ -11,6 +11,8 @@ npm install sequelize-paginator
 ```
 
 
+
+
 ## Setup
 In Your Models
 
@@ -71,9 +73,16 @@ fs.readdirSync(__dirname)
   });
 ```
 
+
+
+
+
+
+
 # In Your Application
 
 To use Sequelize Paginator in your application, you can follow these examples:
+
 
 ## BootstrapLinks
 
@@ -88,6 +97,7 @@ res.render("your_template", { result.data, paginationLinks });
 ```
 
 In this example, YourModel should be replaced with your Sequelize model, and "your_template" should be replaced with the name of your template or view.
+
 
 ## TailwindLinks
 
@@ -105,6 +115,8 @@ res.render("your_template", { result.data, paginationLinks });
 
 Again, replace YourModel and "your_template" with your model and template name, respectively.
 
+
+
 ## Usage with addQueryString
 
 
@@ -116,6 +128,8 @@ const result = await YourModel.findAndPaginate(10, req, {});
 const paginationLinks = bootstrapLinks(addQueryString(result.links, req.query, "page"));
 ```
 
+
+
 ## Usage with where Operators
 
 
@@ -124,6 +138,9 @@ const { Op } = require("sequelize");
   data = await Cours.findAndPaginate(5, req, { where: { id: { [Op.gt]: 100 } } });
   data2 = await User.findAndPaginate(10, req, { where: { id: { [Op.lt]: 100 } } });
 ```
+
+
+
 
 
 # functions explanation
@@ -143,8 +160,12 @@ At the end of the code, you export these functions for use in other parts of you
 
 This code provides a comprehensive solution for handling pagination and generating pagination links in both Bootstrap and Tailwind CSS styles, making it versatile and adaptable for various web development projects.
 
-# Server-Side Rendering (SSR) and Client-Side Rendering (CSR)
 
+
+
+
+
+# Server-Side Rendering (SSR) and Client-Side Rendering (CSR)
 
 Sequelize Paginator can be used in both server-side rendering (SSR) and client-side rendering (CSR) applications. Simply import the necessary functions and use them in your routes, controllers, or components as shown in the examples above.
 
