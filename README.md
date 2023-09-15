@@ -78,7 +78,7 @@ To use Sequelize Paginator in your application, you can follow these examples:
 ## BootstrapLinks
 
 ```
-const { bootstrapLinks } = require("sequelize-paginator");
+const { bootstrapLinks , findAndPaginate } = require("sequelize-paginator");
 
 // Inside your route or controller:
 const result = await YourModel.findAndPaginate(6, req, {});
@@ -93,7 +93,7 @@ In this example, YourModel should be replaced with your Sequelize model, and "yo
 
 
 ```
-const { tailwindLinks } = require("sequelize-paginator");
+const { tailwindLinks , findAndPaginate } = require("sequelize-paginator");
 
 // Inside your route or controller:
 const result = await YourModel.findAndPaginate(10, req, {});
@@ -110,7 +110,7 @@ Again, replace YourModel and "your_template" with your model and template name, 
 
 The addQueryString function is used to append query parameters to pagination links. It ensures that the pagination links retain any existing query parameters while adding the necessary pagination-related parameters.
 ```
-const { addQueryString , bootstrapLinks } = require("sequelize-paginator");
+const { addQueryString , bootstrapLinks , findAndPaginate } = require("sequelize-paginator");
 
 const result = await YourModel.findAndPaginate(10, req, {});
 const paginationLinks = bootstrapLinks(addQueryString(result.links, req.query, "page"));
