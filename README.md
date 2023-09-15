@@ -16,4 +16,9 @@ In Your Models
 
 To set up Sequelize Paginator in your Sequelize models, follow these steps:
 
-    Import the package:
+Import the package:
+
+
+```
+const { findAndPaginate } = require("sequelize-paginator");
+```
