@@ -71,7 +71,7 @@ fs.readdirSync(__dirname)
   });
 ```
 
-## In Your Application
+# In Your Application
 
 To use Sequelize Paginator in your application, you can follow these examples:
 
