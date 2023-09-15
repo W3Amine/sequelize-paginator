@@ -36,7 +36,7 @@ const MyModel = sequelize.define('MyModel', {
 MyModel.findAndPaginate = findAndPaginate ;
 ```
  
-3 -  init 
+### 2 -  init 
   
 ```
   Cours.init(
@@ -57,7 +57,7 @@ MyModel.findAndPaginate = findAndPaginate ;
 ```
 
 
-3 - For each Sequelize model you want to paginate, add the findAndPaginate function to it. For example:
+### 3 - For each Sequelize model you want to paginate, add the findAndPaginate function to it. For example:
 
 ```
 fs.readdirSync(__dirname)
