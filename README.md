@@ -114,18 +114,18 @@ const data = await YourModel.findAndPaginate(10, req, {});
 const paginationLinks = bootstrapLinks(addQueryString(data.links, req.query, "page"));
 ```
 
-
+# functions explenation
 findAndPaginate: This is an asynchronous function that accepts parameters for pagination. It retrieves data based on these parameters and returns a paginated response. It also generates pagination links.
 
-    generatePaginationLinks: A nested function within findAndPaginate, it generates pagination links based on the current page, total pages, and other parameters. It handles different cases for pagination link generation, including ellipsis and disabled links.
+generatePaginationLinks: A nested function within findAndPaginate, it generates pagination links based on the current page, total pages, and other parameters. It handles different cases for pagination link generation, including ellipsis and disabled links.
 
-    bootstrapLinks: This function generates Bootstrap-styled pagination links based on the data provided to it. It creates HTML for pagination using Bootstrap classes.
+bootstrapLinks: This function generates Bootstrap-styled pagination links based on the data provided to it. It creates HTML for pagination using Bootstrap classes.
 
-    tailwindLinks: This function generates Tailwind CSS-styled pagination links based on the data provided to it. It creates HTML for pagination using Tailwind CSS classes.
+tailwindLinks: This function generates Tailwind CSS-styled pagination links based on the data provided to it. It creates HTML for pagination using Tailwind CSS classes.
 
-    addQueryString: This function appends query parameters to pagination links. It ensures that the pagination links retain any existing query parameters while adding the necessary pagination-related parameters.
+addQueryString: This function appends query parameters to pagination links. It ensures that the pagination links retain any existing query parameters while adding the necessary pagination-related parameters.
 
-    buildQueryString: A helper function that converts a query object into a query string format.
+buildQueryString: A helper function that converts a query object into a query string format.
 
 At the end of the code, you export these functions for use in other parts of your application.
 
