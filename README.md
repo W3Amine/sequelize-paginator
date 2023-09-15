@@ -114,6 +114,17 @@ const data = await YourModel.findAndPaginate(10, req, {});
 const paginationLinks = bootstrapLinks(addQueryString(data.links, req.query, "page"));
 ```
 
+# Usage with where Operators
+
+
+```
+const { Op } = require("sequelize");
+  data = await Cours.findAndPaginate(5, req, { where: { id: { [Op.gt]: 100 } } });
+  data2 = await User.findAndPaginate(10, req, { where: { id: { [Op.lt]: 100 } } });
+
+```
+
+
 # functions explenation
 findAndPaginate: This is an asynchronous function that accepts parameters for pagination. It retrieves data based on these parameters and returns a paginated response. It also generates pagination links.
 
