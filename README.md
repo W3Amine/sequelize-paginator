@@ -87,11 +87,16 @@ To use Sequelize Paginator in your application, you can follow these examples:
 ## Basic Api Usage | CSR
 
 
+
 ```
+
   result = await YourModel.findAndPaginate(5, req);
   res.json(result);
 ```
+
 ### result
+
+![Capture](https://github.com/W3Amine/sequelize-paginator/assets/116265410/ff394435-fac2-4809-b5d0-49d82042da5c)
 
 
 ## BootstrapLinks
