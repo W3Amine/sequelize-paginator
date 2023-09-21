@@ -84,6 +84,17 @@ fs.readdirSync(__dirname)
 To use Sequelize Paginator in your application, you can follow these examples:
 
 
+## Basic Api Usage | CSR
+
+
+```
+  result = await YourModel.findAndPaginate(5, req);
+  res.json(result);
+```
+### result
+
+
+
 ## BootstrapLinks
 
 ```
@@ -94,6 +105,8 @@ const result = await YourModel.findAndPaginate(6, req, {});
 const paginationLinks = bootstrapLinks(result.links);
 
 res.render("your_template", { result.data, paginationLinks });
+  // OR USE
+//  res.send(` <script src="https://cdn.tailwindcss.com"></script> ${paginationLinks} `);
 ```
 
 In this example, YourModel should be replaced with your Sequelize model, and "your_template" should be replaced with the name of your template or view.
