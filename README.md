@@ -94,7 +94,6 @@ To use Sequelize Paginator in your application, you can follow these examples:
 ### result
 
 
-
 ## BootstrapLinks
 
 ```
