@@ -109,8 +109,9 @@ const result = await YourModel.findAndPaginate(6, req, {});
 const paginationLinks = bootstrapLinks(result.links);
 
 res.render("your_template", { result.data, paginationLinks });
-  // OR USE
-//  res.send(` <script src="https://cdn.tailwindcss.com"></script> ${paginationLinks} `);
+   <!-- OR USE
+  res.send(` <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3 azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"></link>
+${paginationLinks} `); -->
 ```
 
 In this example, YourModel should be replaced with your Sequelize model, and "your_template" should be replaced with the name of your template or view.
